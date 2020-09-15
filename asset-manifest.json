@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/bchat/static/css/main.e52c8f9c.chunk.css",
+    "main.js": "/bchat/static/js/main.805b3329.chunk.js",
+    "main.js.map": "/bchat/static/js/main.805b3329.chunk.js.map",
+    "runtime-main.js": "/bchat/static/js/runtime-main.fecc921d.js",
+    "runtime-main.js.map": "/bchat/static/js/runtime-main.fecc921d.js.map",
+    "static/js/2.7a2f53bd.chunk.js": "/bchat/static/js/2.7a2f53bd.chunk.js",
+    "static/js/2.7a2f53bd.chunk.js.map": "/bchat/static/js/2.7a2f53bd.chunk.js.map",
+    "index.html": "/bchat/index.html",
+    "precache-manifest.2f77099a45dd5da039acc297bcc4daf3.js": "/bchat/precache-manifest.2f77099a45dd5da039acc297bcc4daf3.js",
+    "service-worker.js": "/bchat/service-worker.js",
+    "static/css/main.e52c8f9c.chunk.css.map": "/bchat/static/css/main.e52c8f9c.chunk.css.map",
+    "static/js/2.7a2f53bd.chunk.js.LICENSE.txt": "/bchat/static/js/2.7a2f53bd.chunk.js.LICENSE.txt",
+    "static/media/ic_wave_hand.png": "/bchat/static/media/ic_wave_hand.9299706f.png",
+    "static/media/mimi1.gif": "/bchat/static/media/mimi1.477fc8dd.gif",
+    "static/media/mimi2.gif": "/bchat/static/media/mimi2.82a78335.gif",
+    "static/media/mimi3.gif": "/bchat/static/media/mimi3.477fc8dd.gif",
+    "static/media/mimi4.gif": "/bchat/static/media/mimi4.6b657423.gif",
+    "static/media/mimi5.gif": "/bchat/static/media/mimi5.609127cb.gif",
+    "static/media/mimi6.gif": "/bchat/static/media/mimi6.1ce35a6b.gif",
+    "static/media/mimi7.gif": "/bchat/static/media/mimi7.ace546bd.gif",
+    "static/media/mimi8.gif": "/bchat/static/media/mimi8.6646a3de.gif",
+    "static/media/mimi9.gif": "/bchat/static/media/mimi9.b5ec7c32.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fecc921d.js",
+    "static/js/2.7a2f53bd.chunk.js",
+    "static/css/main.e52c8f9c.chunk.css",
+    "static/js/main.805b3329.chunk.js"
+  ]
+}
