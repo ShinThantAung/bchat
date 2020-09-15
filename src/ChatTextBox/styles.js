@@ -1,28 +1,33 @@
-
-const styles = theme => ({
-
-    sendBtn: {
-      color: 'blue',
-      cursor: 'pointer',
-      '&:hover': {
-        color: 'gray'
-      }
+const styles = (theme) => ({
+  sendBtn: {
+    color: "blue",
+    cursor: "pointer",
+    "&:hover": {
+      color: "gray",
     },
+    marginRight: "10px",
+  },
 
-    chatTextBoxContainer: {
-      position: 'absolute',
-      bottom: '15px',
-      left: '315px',
-      boxSizing: 'border-box',
-      overflow: 'auto',
-      
-      width: 'calc(100% - 300px - 50px)'
+  chatTextBoxContainer: {
+    width: "auto",
+    display: "block", // Fix IE 11 issue.
+    marginLeft: theme.spacing.unit * 3,
+    marginRight: theme.spacing.unit * 3,
+    [theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+      width: 400,
+      marginLeft: "auto",
+      marginRight: "auto",
     },
+  },
 
-    chatTextBox: {
-      width: 'calc(100% - 25px)'
-    }
+  chatTextBox: {
+    // width: "200px",
+    flex: "1",
+    border: "none",
+    fontSize: "14px",
+    height: "40px",
+    background: "none",
+  },
+});
 
-  });
-
-  export default styles;
+export default styles;

@@ -1,60 +1,116 @@
-import React from 'react';
-import styles from './styles';
-import { withStyles } from '@material-ui/core/styles';
-import './ChatView.scss';
-import './chatView.css';
-
-
+import React from "react";
+import styles from "./styles";
+import { withStyles } from "@material-ui/core/styles";
+import "./ChatView.scss";
+import "./chatView.css";
+import Avatar from "@material-ui/core/Avatar";
+import moment from "moment";
+import ReactLoading from "react-loading";
 // import Container from '@material-ui/core/Container';
 class ChatViewComponent extends React.Component {
-
   componentDidMount = () => {
-    const container = document.getElementById('chatview-container');
-    if(container)
-      container.scrollTo(0, container.scrollHeight);
-  }
+    const container = document.getElementById("chatview-container");
+    if (container) container.scrollTo(0, container.scrollHeight);
+  };
   componentDidUpdate = () => {
-    const container = document.getElementById('chatview-container');
-    if(container)
-      container.scrollTo(0, container.scrollHeight);
-  }
+    this.scrollToBottom();
+    const container = document.getElementById("chatview-container");
+    if (container) container.scrollTo(0, container.scrollHeight);
+  };
+  scrollToBottom = () => {
+    if (this.messagesEnd) {
+      this.messagesEnd.scrollIntoView({});
+    }
+  };
 
   render() {
-
     const { classes } = this.props;
 
-    if(this.props.chat === undefined) {
-      return(<main className={classes.content}></main>);
-    } else if(this.props.chat !== undefined) {
-      return(
-        
-        <div >
-          <div id='chat-title'>
-            Your conversation with {this.props.chat.users.filter(_usr => _usr !== this.props.user)[0]}
-          </div>
-      
-          <main id='chatview-container' className={classes.content}>
+    if (this.props.chat === undefined) {
+      return <main className={classes.content}></main>;
+    } else if (this.props.chat !== undefined) {
+      return (
+        <div>
+          <div className={classes.content}>
+            {/* <div className="headerChatBoard">
+              Your conversation with{" "}
+              {
+                this.props.chat.users.filter(
+                  (_usr) => _usr !== this.props.user
+                )[0]
+              }
+            </div> */}
 
-            {
-              this.props.chat.messages.map((_msg, _index) => {
-                return(
-              
-                <div key={_index} className={_msg.sender === this.props.user ? classes.userSent : classes.friendSent}>
-                <div>{_msg.message}</div> 
-                <div className={classes.Conversationtime}> 
-                
-                <span >{ new Date(parseInt(_msg.timestamp)).toUTCString()}</span>
-                </div>
-                <div className={classes.Conversationtime}> <span>{_msg.receiverHasRead === true ?'yrdy':'seen'}</span></div>
-                </div>
-                )
-              })
-            }
-           </main>
+            <div className="headerChatBoard">
+              <Avatar alt="Remy Sharp">
+                {
+                  this.props.chat.users
+                    .filter((_usr) => _usr !== this.props.user)[0]
+                    .split("")[0]
+                }
+              </Avatar>
+              <span className="textHeaderChatBoard">
+                {
+                  this.props.chat.users.filter(
+                    (_usr) => _usr !== this.props.user
+                  )[0]
+                }
+              </span>
+              {/* <img
+                className="viewAvatarItem"
+                // src={this.currentPeerUser.photoUrl}
+                alt="icon avatar"
+              />
+              <span className="textHeaderChatBoard">
+                {
+                  this.props.chat.users.filter(
+                    (_usr) => _usr !== this.props.user
+                  )[0]
+                }
+              </span> */}
+            </div>
+
+            <div className="viewListContentChat">
+              {this.props.chat.messages.map((_msg, _index) => {
+                return (
+                  <div
+                    key={_index}
+                    className={
+                      _msg.sender === this.props.user
+                        ? classes.userSent
+                        : classes.friendSent
+                    }
+                  >
+                    <div>{_msg.message}</div>
+
+                    <span className="textTimeLeft">
+                      {moment(Number(_msg.timestamp)).format("lll")}
+                    </span>
+                    <div className={classes.Conversationtime}></div>
+                    <div
+                      style={{ float: "left", clear: "both" }}
+                      ref={(el) => {
+                        this.messagesEnd = el;
+                      }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       );
     } else {
-      return (<div className='root'>Loading...</div>);
+      return (
+        <div className="viewLoading">
+          <ReactLoading
+            type={"bars"}
+            color={"#203152"}
+            height={"30%"}
+            width={"30%"}
+          />
+        </div>
+      );
     }
   }
 }
